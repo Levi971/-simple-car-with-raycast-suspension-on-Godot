@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ey7xlr4cgd5b"]
+
+[ext_resource type="Script" path="res://Simple_Car/Script/Suspension.gd" id="1_ihbui"]
+
+[node name="Suspension" type="RayCast3D"]
+script = ExtResource("1_ihbui")

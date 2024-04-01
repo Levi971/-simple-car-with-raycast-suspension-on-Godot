@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dp51nmu5ybynp"]
+
+[ext_resource type="PackedScene" uid="uid://fdfmy3ya7fpp" path="res://Simple_Car/Scene/rigid_body_3d.tscn" id="1_2jy3m"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trs4g"]
+albedo_color = Color(0.188235, 0.188235, 0.188235, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wr5q8"]
+material = SubResource("StandardMaterial3D_trs4g")
+size = Vector2(50, 50)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_17mmc"]
+data = PackedVector3Array(25, 0, 25, -25, 0, 25, 25, 0, -25, -25, 0, 25, -25, 0, -25, 25, 0, -25)
+
+[node name="Scene" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_wr5q8")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_17mmc")
+
+[node name="RigidBody3D" parent="." instance=ExtResource("1_2jy3m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.00851856, -0.492072, 0.870513, -0.0669873, 0.868308, 0.491481, -0.997717, -0.0625, -0.0255659, 5.25, 4.25, 0.5)

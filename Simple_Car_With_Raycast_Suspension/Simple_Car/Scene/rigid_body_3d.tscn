@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://fdfmy3ya7fpp"]
+
+[ext_resource type="PackedScene" uid="uid://ey7xlr4cgd5b" path="res://Simple_Car/Scene/suspension.tscn" id="1_0voy6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fppjp"]
+size = Vector3(2, 0.5, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yymbx"]
+size = Vector3(2, 0.5, 4)
+
+[node name="RigidBody3D" type="RigidBody3D"]
+mass = 2000.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_fppjp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_yymbx")
+
+[node name="Suspension" parent="." instance=ExtResource("1_0voy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.184289, 2)
+dampness = 1.0
+stiffness = 10.0
+
+[node name="Suspension2" parent="." instance=ExtResource("1_0voy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.184289, -2)
+dampness = 1.0
+stiffness = 10.0
+
+[node name="Suspension3" parent="." instance=ExtResource("1_0voy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.184289, 2)
+dampness = 1.0
+stiffness = 10.0
+
+[node name="Suspension4" parent="." instance=ExtResource("1_0voy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.184289, -2)
+dampness = 1.0
+stiffness = 10.0
